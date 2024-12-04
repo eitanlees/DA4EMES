@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Summary – Data Analysis for Earth, Marine, and Environmental Sciences</title>
+<title>2&nbsp; Fourier Analysis – Data Analysis for Earth, Marine, and Environmental Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./timeseries/fourier.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../summary.html" rel="next">
+<link href="../timeseries/timeseries.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../timeseries/timeseries.html">Time Series</a></li><li class="breadcrumb-item"><a href="../timeseries/fourier.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Fourier Analysis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Analysis for Earth, Marine, and Environmental Sciences</a> 
+      <a href="../">Data Analysis for Earth, Marine, and Environmental Sciences</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -108,19 +137,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./timeseries/timeseries.html" class="sidebar-item-text sidebar-link">
+            <a href="../timeseries/timeseries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Time Series</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -129,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./timeseries/fourier.html" class="sidebar-item-text sidebar-link">
+  <a href="../timeseries/fourier.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Fourier Analysis</span></span></a>
   </div>
 </li>
@@ -137,13 +166,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -152,15 +181,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#fourier-basic-idea" id="toc-fourier-basic-idea" class="nav-link active" data-scroll-target="#fourier-basic-idea"><span class="header-section-number">2.1</span> Fourier Basic Idea</a></li>
+  <li><a href="#discrete-sampling" id="toc-discrete-sampling" class="nav-link" data-scroll-target="#discrete-sampling"><span class="header-section-number">2.2</span> Discrete Sampling</a></li>
+  <li><a href="#cycles-phase-and-frequency" id="toc-cycles-phase-and-frequency" class="nav-link" data-scroll-target="#cycles-phase-and-frequency"><span class="header-section-number">2.3</span> Cycles, Phase and Frequency</a></li>
+  <li><a href="#time-series-basics" id="toc-time-series-basics" class="nav-link" data-scroll-target="#time-series-basics"><span class="header-section-number">2.4</span> Time Series: Basics</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../timeseries/timeseries.html">Time Series</a></li><li class="breadcrumb-item"><a href="../timeseries/fourier.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Fourier Analysis</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Fourier Analysis</span></h1>
 </div>
 
 
@@ -177,9 +215,149 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
+<p>This section is an introduction to Fourier Analysis. We will cover a variety of topics including</p>
+<ul>
+<li>Complex Numbers Review</li>
+<li>Series Expansions: exp, cosine, sine Euler’s Formulae</li>
+<li>Definition of Fourier Transform (Continuous) Fourier Transform Pairs Amplitude and Phase</li>
+<li>Frequency, Period, Sampling</li>
+<li>Nyquist Frequency</li>
+<li>Convolution vs.&nbsp;Correlation Periodogram</li>
+<li>Leakage and Tapering</li>
+</ul>
+<section id="fourier-basic-idea" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="fourier-basic-idea"><span class="header-section-number">2.1</span> Fourier Basic Idea</h2>
+<p>How would you describe this signal?:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-one-wiggle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-one-wiggle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fourier_files/figure-html/fig-one-wiggle-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-one-wiggle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: A single time series
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The signal can be represented as a sum of different sinusoids:</p>
+<ul>
+<li>Signal S1: .2 Hz amplitude 10</li>
+<li>Signal S2: 3 Hz amplitude .4</li>
+<li>Signal S3 = S1 + S2</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-three-wiggles" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-three-wiggles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fourier_files/figure-html/fig-three-wiggles-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-three-wiggles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: The same signal can be represented as a sum of sinusoids.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>One could convey all the information with 6 numbers:</p>
+<ul>
+<li>dt, length</li>
+<li>10, .2</li>
+<li>.4, 3</li>
+</ul>
+</section>
+<section id="discrete-sampling" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="discrete-sampling"><span class="header-section-number">2.2</span> Discrete Sampling</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-discrete-sampling" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-discrete-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fourier_files/figure-html/fig-discrete-sampling-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-discrete-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: A wave is sampled at discrete points in time.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Red: Period of Sine Wave (s)</li>
+<li>Blue: Amplitude of Sine Wave</li>
+<li><span class="math inline">\(\delta t\)</span> : sampling rate (s)</li>
+</ul>
+</section>
+<section id="cycles-phase-and-frequency" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="cycles-phase-and-frequency"><span class="header-section-number">2.3</span> Cycles, Phase and Frequency</h2>
+<div id="fig-cycles" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cycles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/spctr015.jpg" id="fig-cycles" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-cycles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4
+</figcaption>
+</figure>
+</div>
+<p>The rotating pen height in <a href="#fig-cycles" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> represents the signal. <span class="math display">\[
+Y_{i} = A \sin \left( 2 \pi x_{i}/X + \phi \right)
+   \]</span> <span class="math display">\[
+\alpha_{i} = \left( 2 \pi x_{i}/X + \phi \right)
+   \]</span></p>
+</section>
+<section id="time-series-basics" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="time-series-basics"><span class="header-section-number">2.4</span> Time Series: Basics</h2>
+<ul>
+<li>Signal Characteristics:
+<ul>
+<li>period = T/cycle</li>
+<li>frequency <span class="math inline">\(f=1/T\)</span> cycles/s</li>
+</ul></li>
+<li>Sampling
+<ul>
+<li>sample rate =<span class="math inline">\(\Delta t\)</span></li>
+<li>Sampling Frequency = <span class="math inline">\(\frac{1}{\Delta t } = f_{sampling}\)</span></li>
+</ul></li>
+</ul>
+<p>Units:<br>
+if <span class="math inline">\(y =  \cos ( \theta ) = \cos ( \omega t )\)</span></p>
+<ul>
+<li><span class="math inline">\(\theta\)</span> is in units of radians <span class="math inline">\(= 2 \pi f t\)</span></li>
+<li>there are <span class="math inline">\(2 \pi\)</span> radians per cycle</li>
+<li>we define the angular frequency <span class="math inline">\(\omega = 2 \pi f\)</span> radians/sec</li>
+<li>time <span class="math inline">\(t\)</span> is defined as <span class="math inline">\(t = i \cdot \Delta t\)</span> where <span class="math inline">\(i\)</span> is the sample</li>
+<li><span class="math inline">\(T= \sum i\cdot \Delta t\)</span> is the total time <span class="math display">\[
+y_{k} = A \cos ( \omega t - \phi )
+\]</span> where <span class="math inline">\(\phi\)</span> is the phase and <span class="math inline">\(\omega\)</span> is the frequency.</li>
+</ul>
+<p><span class="math display">\[\begin{eqnarray*}
+y_{k} &amp;=&amp;A \cos(\omega t - \phi) \\
+&amp;=&amp; A \cos (\omega t) \cos \phi + A \sin (\omega t) \sin \phi \\
+&amp;=&amp;  \alpha_{k} \cos (\omega t ) + \beta_{k} \sin(\omega t)
+\end{eqnarray*}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Trig Identities">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trig Identities
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\begin{align*}
+\sin(u \pm v ) &amp;= \sin u \cos  v   \pm  \cos u \sin v \\
+\cos ( u \pm v ) &amp;= \cos u \cos  v   \mp  \sin  u \sin v\\
+\end{align*}\]</span></p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -601,13 +779,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./timeseries/fourier.html" class="pagination-link" aria-label="Fourier Analysis">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Fourier Analysis</span></span>
+      <a href="../timeseries/timeseries.html" class="pagination-link" aria-label="Time Series">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Time Series</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

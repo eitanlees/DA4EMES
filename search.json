@@ -20,13 +20,78 @@
     ]
   },
   {
+    "objectID": "timeseries/timeseries.html",
+    "href": "timeseries/timeseries.html",
+    "title": "Time Series",
+    "section": "",
+    "text": "This section is about time series analysis.",
+    "crumbs": [
+      "Time Series"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html",
+    "href": "timeseries/fourier.html",
+    "title": "2  Fourier Analysis",
+    "section": "",
+    "text": "2.1 Fourier Basic Idea\nThis section is an introduction to Fourier Analysis. We will cover a variety of topics including\nHow would you describe this signal?:\nFigure 2.1: A single time series\nThe signal can be represented as a sum of different sinusoids:\nFigure 2.2: The same signal can be represented as a sum of sinusoids.\nOne could convey all the information with 6 numbers:",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-basic-idea",
+    "href": "timeseries/fourier.html#fourier-basic-idea",
+    "title": "2  Fourier Analysis",
+    "section": "",
+    "text": "Signal S1: .2 Hz amplitude 10\nSignal S2: 3 Hz amplitude .4\nSignal S3 = S1 + S2\n\n\n\n\ndt, length\n10, .2\n.4, 3",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#discrete-sampling",
+    "href": "timeseries/fourier.html#discrete-sampling",
+    "title": "2  Fourier Analysis",
+    "section": "2.2 Discrete Sampling",
+    "text": "2.2 Discrete Sampling\n\n\n\n\n\n\n\n\nFigure 2.3: A wave is sampled at discrete points in time.\n\n\n\n\n\n\nRed: Period of Sine Wave (s)\nBlue: Amplitude of Sine Wave\n\\(\\delta t\\) : sampling rate (s)",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#cycles-phase-and-frequency",
+    "href": "timeseries/fourier.html#cycles-phase-and-frequency",
+    "title": "2  Fourier Analysis",
+    "section": "2.3 Cycles, Phase and Frequency",
+    "text": "2.3 Cycles, Phase and Frequency\n\n\n\n\n\n\nFigure 2.4\n\n\n\nThe rotating pen height in Figure 2.4 represents the signal. \\[\nY_{i} = A \\sin \\left( 2 \\pi x_{i}/X + \\phi \\right)\n   \\] \\[\n\\alpha_{i} = \\left( 2 \\pi x_{i}/X + \\phi \\right)\n   \\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#time-series-basics",
+    "href": "timeseries/fourier.html#time-series-basics",
+    "title": "2  Fourier Analysis",
+    "section": "2.4 Time Series: Basics",
+    "text": "2.4 Time Series: Basics\n\nSignal Characteristics:\n\nperiod = T/cycle\nfrequency \\(f=1/T\\) cycles/s\n\nSampling\n\nsample rate =\\(\\Delta t\\)\nSampling Frequency = \\(\\frac{1}{\\Delta t } = f_{sampling}\\)\n\n\nUnits:\nif \\(y =  \\cos ( \\theta ) = \\cos ( \\omega t )\\)\n\n\\(\\theta\\) is in units of radians \\(= 2 \\pi f t\\)\nthere are \\(2 \\pi\\) radians per cycle\nwe define the angular frequency \\(\\omega = 2 \\pi f\\) radians/sec\ntime \\(t\\) is defined as \\(t = i \\cdot \\Delta t\\) where \\(i\\) is the sample\n\\(T= \\sum i\\cdot \\Delta t\\) is the total time \\[\ny_{k} = A \\cos ( \\omega t - \\phi )\n\\] where \\(\\phi\\) is the phase and \\(\\omega\\) is the frequency.\n\n\\[\\begin{eqnarray*}\ny_{k} &=&A \\cos(\\omega t - \\phi) \\\\\n&=& A \\cos (\\omega t) \\cos \\phi + A \\sin (\\omega t) \\sin \\phi \\\\\n&=&  \\alpha_{k} \\cos (\\omega t ) + \\beta_{k} \\sin(\\omega t)\n\\end{eqnarray*}\\]\n\n\n\n\n\n\nTrig Identities\n\n\n\n\\[\\begin{align*}\n\\sin(u \\pm v ) &= \\sin u \\cos  v   \\pm  \\cos u \\sin v \\\\\n\\cos ( u \\pm v ) &= \\cos u \\cos  v   \\mp  \\sin  u \\sin v\\\\\n\\end{align*}\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "2  Summary",
+    "title": "3  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
   {
