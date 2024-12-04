@@ -8,6 +8,9 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - part: timeseries/timeseries.qmd
+      chapters:
+        - timeseries/fourier.qmd
     - summary.qmd
     - references.qmd
 
@@ -18,3 +21,6 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+
+editor:
+  render-on-save: true

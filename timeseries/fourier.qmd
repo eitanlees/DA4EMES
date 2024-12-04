@@ -1,0 +1,153 @@
+# Fourier Analysis
+This section is an introduction to Fourier Analysis. We will cover a variety of topics including 
+
+- Complex Numbers Review
+- Series Expansions: exp, cosine, sine Euler’s Formulae
+- Definition of Fourier Transform (Continuous) Fourier Transform Pairs Amplitude and Phase
+- Frequency, Period, Sampling
+- Nyquist Frequency
+- Convolution vs. Correlation Periodogram
+- Leakage and Tapering
+
+
+## Fourier Basic Idea
+
+How would you describe this signal?:
+
+```{r}
+#| label: fig-one-wiggle
+#| fig-cap: A single time series
+#| echo: false
+
+dt = 1/100
+
+t = seq(from=0, by=dt, length=200);
+
+y1 = 10*sin(2*pi*.2*t)
+y2 = .4*sin(2*pi* 3*t);
+y3 = y1+ y2
+
+par(mai=c(.5, .5, .1,.1) )
+
+plot(t, y3, type='l', xlab='', ylab='')
+```
+
+The signal can be represented as a sum of different sinusoids:
+
+- Signal S1: .2 Hz amplitude 10
+- Signal S2: 3 Hz amplitude .4
+- Signal S3 = S1 + S2
+
+```{r}
+#| label: fig-three-wiggles
+#| fig-cap: The same signal can be represented as a sum of sinusoids.
+#| fig-height: 10
+#| echo: false
+par(mfrow=c(3,1) )
+par(mai=c(.5, .5, .1,.1) )
+plot(t, y1, ylim=range(y3) , type='l', xlab='', ylab='')
+plot(t, y2, ylim=range(y3), type='l', xlab='', ylab='')
+plot(t, y3, ylim=range(y3), type='l', xlab='', ylab='')
+```
+
+
+One could convey all the information with 6 numbers:
+
+- dt, length
+- 10, .2
+- .4, 3
+
+## Discrete Sampling
+
+```{r}
+#| label: fig-discrete-sampling
+#| fig-cap: A wave is sampled at discrete points in time. 
+#| echo: false
+
+library(RSEIS)
+
+dt = 0.001
+omega = 4
+A = 2
+phi0 = 20*pi/180
+
+x = seq(from=0, to=5, by=dt)
+y = A*sin(omega*x - phi0)
+
+aa <- which(peaks(y, span=3))
+
+ay1 = y[aa[1]]+.1*A
+ay2 = y[aa[2]]+.1*A
+
+plot(range(x), range(y), type='n', ann=FALSE, axes=FALSE)
+lines(x,y)
+axis(1)
+axis(2)
+
+DT =0.2
+g = seq(from=min(x), to=max(x), by=DT)
+gy = A*sin(omega*g - phi0)
+
+points(g,gy)
+segments(g, rep(0, times=length(g)), g, gy, col=grey(0.85))
+abline(h=0)
+
+
+segments(x[aa[1]], ay1,x[aa[2]], ay2, lwd=2, col='red', xpd=TRUE)
+segments(x[aa[1]], ay1,x[aa[1]],y[aa[1]] , col='red', xpd=TRUE)
+segments(x[aa[2]], ay2,x[aa[2]],y[aa[2]] , col='red', xpd=TRUE)
+
+segments(x[aa[3]], 0,x[aa[3]],y[aa[3]] , col='blue', lwd=2, xpd=TRUE)
+```
+
+- Red: Period of Sine Wave (s)
+- Blue: Amplitude of Sine Wave 
+- $\delta t$ : sampling rate (s)
+
+## Cycles, Phase and Frequency
+
+![](../images/spctr015.jpg){#fig-cycles}
+
+   The rotating pen height in @fig-cycles represents the signal.
+   $$
+Y_{i} = A \sin \left( 2 \pi x_{i}/X + \phi \right)
+   $$
+   $$
+\alpha_{i} = \left( 2 \pi x_{i}/X + \phi \right)
+   $$
+
+## Time Series: Basics
+
+-   Signal Characteristics:
+    - period = T/cycle
+    - frequency $f=1/T$ cycles/s
+- Sampling
+    - sample rate =$\Delta t$
+    - Sampling Frequency = $\frac{1}{\Delta t } = f_{sampling}$ 
+
+Units: \
+if $y =  \cos ( \theta ) = \cos ( \omega t )$ 
+
+- $\theta$ is in units of radians $= 2 \pi f t$
+- there are $2 \pi$ radians per cycle
+- we define the angular frequency $\omega = 2 \pi f$ radians/sec
+- time $t$ is defined as $t = i \cdot \Delta t$ where $i$ is the sample 
+- $T= \sum i\cdot \Delta t$ is the total time
+$$
+y_{k} = A \cos ( \omega t - \phi )
+$$
+where $\phi$ is the phase and $\omega$ is
+the frequency.
+
+\begin{eqnarray*}
+y_{k} &=&A \cos(\omega t - \phi) \\
+&=& A \cos (\omega t) \cos \phi + A \sin (\omega t) \sin \phi \\
+&=&  \alpha_{k} \cos (\omega t ) + \beta_{k} \sin(\omega t)
+\end{eqnarray*}  
+
+::: {.callout-note title="Trig Identities"}
+ \begin{align*}
+ \sin(u \pm v ) &= \sin u \cos  v   \pm  \cos u \sin v \\
+ \cos ( u \pm v ) &= \cos u \cos  v   \mp  \sin  u \sin v\\
+ \end{align*}
+:::
