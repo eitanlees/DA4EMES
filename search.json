@@ -67,7 +67,7 @@
     "href": "timeseries/fourier.html#cycles-phase-and-frequency",
     "title": "2  Fourier Analysis",
     "section": "2.3 Cycles, Phase and Frequency",
-    "text": "2.3 Cycles, Phase and Frequency\n\n\n\n\n\n\nFigure 2.4\n\n\n\nThe rotating pen height in Figure 2.4 represents the signal. \\[\nY_{i} = A \\sin \\left( 2 \\pi x_{i}/X + \\phi \\right)\n   \\] \\[\n\\alpha_{i} = \\left( 2 \\pi x_{i}/X + \\phi \\right)\n   \\]",
+    "text": "2.3 Cycles, Phase and Frequency\n\n\n\n\n\n\n\n\nFigure 2.4: Cycles and Sines\n\n\n\nThe rotating pen height in Figure 2.4 represents the signal. \\[\nY_{i} = A \\sin \\left( 2 \\pi x_{i}/X + \\phi \\right)\n   \\] \\[\n\\alpha_{i} = \\left( 2 \\pi x_{i}/X + \\phi \\right)\n   \\]",
     "crumbs": [
       "Time Series",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
@@ -79,6 +79,237 @@
     "title": "2  Fourier Analysis",
     "section": "2.4 Time Series: Basics",
     "text": "2.4 Time Series: Basics\n\nSignal Characteristics:\n\nperiod = T/cycle\nfrequency \\(f=1/T\\) cycles/s\n\nSampling\n\nsample rate =\\(\\Delta t\\)\nSampling Frequency = \\(\\frac{1}{\\Delta t } = f_{sampling}\\)\n\n\nUnits:\nif \\(y =  \\cos ( \\theta ) = \\cos ( \\omega t )\\)\n\n\\(\\theta\\) is in units of radians \\(= 2 \\pi f t\\)\nthere are \\(2 \\pi\\) radians per cycle\nwe define the angular frequency \\(\\omega = 2 \\pi f\\) radians/sec\ntime \\(t\\) is defined as \\(t = i \\cdot \\Delta t\\) where \\(i\\) is the sample\n\\(T= \\sum i\\cdot \\Delta t\\) is the total time \\[\ny_{k} = A \\cos ( \\omega t - \\phi )\n\\] where \\(\\phi\\) is the phase and \\(\\omega\\) is the frequency.\n\n\\[\\begin{eqnarray*}\ny_{k} &=&A \\cos(\\omega t - \\phi) \\\\\n&=& A \\cos (\\omega t) \\cos \\phi + A \\sin (\\omega t) \\sin \\phi \\\\\n&=&  \\alpha_{k} \\cos (\\omega t ) + \\beta_{k} \\sin(\\omega t)\n\\end{eqnarray*}\\]\n\n\n\n\n\n\nTrig Identities\n\n\n\n\\[\\begin{align*}\n\\sin(u \\pm v ) &= \\sin u \\cos  v   \\pm  \\cos u \\sin v \\\\\n\\cos ( u \\pm v ) &= \\cos u \\cos  v   \\mp  \\sin  u \\sin v\\\\\n\\end{align*}\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#trig-functions",
+    "href": "timeseries/fourier.html#trig-functions",
+    "title": "2  Fourier Analysis",
+    "section": "2.5 Trig Functions",
+    "text": "2.5 Trig Functions\nConsider the Taylor series expansions:\n\\[\\begin{eqnarray*}\ne^x &=& 1 + x +\\frac{x^2}{2!}+\\frac{x^3}{3!}+ \\cdots \\\\\n\\sin(x)  &=& x - \\frac{x^3}{3!} +  \\frac{x^5}{5!} - \\frac{x^7}{7!}  + \\cdots \\\\\n\\cos(x)   &=& 1 - \\frac{x^2}{2!} +  \\frac{x^4}{4!} - \\frac{x^6}{6!} + \\cdots\n\\end{eqnarray*}\\]\nPlug in \\(ix\\) in the formula for \\(e^x\\) get: \\[\ne^{ix} = 1 + ix +\\frac{(ix)^2}{2!}+\\frac{(ix)^3}{3!}+\\frac{(ix)^4}{4!}+\\frac{(ix)^5}{5!}+\\frac{(ix)^6}{6!}+\\frac{(ix)^7}{7!}+\\cdots\n\\] Expanding out the complex numbers gives the trigonometric functions. \\[\ne^{ix} = \\cos(x) + i \\sin(x)\n\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#eulers-formula",
+    "href": "timeseries/fourier.html#eulers-formula",
+    "title": "2  Fourier Analysis",
+    "section": "2.6 Euler’s Formula",
+    "text": "2.6 Euler’s Formula\n\\[\ne^{i\\theta} = \\cos(\\theta) + i \\sin(\\theta)\n\\] And \\[\ne^{-i\\theta} = \\cos(\\theta) - i \\sin(\\theta)\n\\] Add these together: \\[\ne^{i\\theta} + e^{-i\\theta} = 2 \\cos(\\theta)\n\\] or: \\[\n\\cos(\\theta) = \\frac{e^{i\\theta} + e^{-i\\theta}}{2}\n\\] Similarly, by subtracting: \\[\n\\sin(\\theta) = \\frac{e^{i\\theta} - e^{-i\\theta}}{2i}\n\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-analysis",
+    "href": "timeseries/fourier.html#fourier-analysis",
+    "title": "2  Fourier Analysis",
+    "section": "2.7 Fourier Analysis",
+    "text": "2.7 Fourier Analysis\n\nThe Fourier Transform (FT) is a series of complex numbers \\(\\left[ a, b \\right] = a + ib\\).\nThe real and imaginary parts of the FT can be combined to extract different information from the FT.\nThe Amplitude spectrum is the modulus of the complex numbers: \\[\nA_{i} = \\sqrt{a_{i} ^2 + b_{i} ^2}\n\\]\nThe phase spectrum is the phase angle: \\[\n\\phi_{i}  = \\tan^{-1}\\left( \\frac{b_{i} }{a_{i} } \\right)\n\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#links-to-animations",
+    "href": "timeseries/fourier.html#links-to-animations",
+    "title": "2  Fourier Analysis",
+    "section": "2.8 Links to animations",
+    "text": "2.8 Links to animations\n\nGeometric Fourier Transform Animation by Michael Borcherds\nWhat is the Fourier Transform? by 3Blue1Brown",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-series",
+    "href": "timeseries/fourier.html#fourier-series",
+    "title": "2  Fourier Analysis",
+    "section": "2.9 Fourier Series",
+    "text": "2.9 Fourier Series\n\\[\\begin{eqnarray*}\ny_{k} &=&A \\cos(\\omega t - \\phi) \\\\\n&=& A \\cos \\omega t \\cos \\phi + A \\sin \\omega t \\sin \\phi \\\\\n&=&  \\alpha_{k} \\cos (\\omega t ) + \\beta_{k} \\sin(\\omega t)\n\\end{eqnarray*}\\]\nThe Fourier Coefficients are \\(\\alpha_{k} , \\beta_{k}\\)\nThis leads to Fourier’s Theorem: \\[\nY = \\sum_{k=0}^{\\infty} A_{k} \\cos(k\\theta + \\phi_{k})\n\\]\n\\[\\begin{eqnarray*}\n\\beta_{k} &=& \\frac{2}{k}\\sum_{j=0}^{n-1} Y_{j} \\sin \\left( \\frac{2\\pi j k}{n} \\right) \\\\\n\\alpha_{k} &=& \\frac{2}{k}\\sum_{j=0}^{n-1} Y_{j} \\cos \\left( \\frac{2\\pi j k}{n} \\right) \\\\\n\\end{eqnarray*}\\]\nThe Zero-th value of the FT is the Mean value of the time series: \\[\n\\alpha_{0} = \\frac{1}{n} \\sum_{j=0}^{n-1} Y_{j}\n\\] This is usually called the DC or “direct current”.\nGiven the definition of the Fourier Series above, the spectrum is defined as: \\[\\begin{eqnarray*}\nA_{i} &=& \\sqrt{a_{i} ^2 + b_{i} ^2} \\\\\n\\phi_{i}  &=&  \\tan^{-1}\\left( \\frac{b_{i} }{a_{i} } \\right)\n\\end{eqnarray*}\\]\n\n\n\n\n\n\nFigure 2.5: FFT Explained",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-analysis-1",
+    "href": "timeseries/fourier.html#fourier-analysis-1",
+    "title": "2  Fourier Analysis",
+    "section": "2.10 Fourier Analysis",
+    "text": "2.10 Fourier Analysis\n\nperiod = T/cycle\nsample rate =\\(\\Delta t\\)\nfrequency \\(f=1/T\\) cycles/s\nSampling Frequency = \\(\\frac{1}{\\Delta t } = f_{sampling}\\)\n\nif \\(y =  \\cos( \\theta )    = \\cos( \\omega t )\\)\n\n\\(\\theta\\) is in units of radians \\(= 2 \\pi f t\\)\nthere are \\(2 \\pi\\) radians per cycle\nwe define the angular frequency \\(\\omega = 2 \\pi f\\) radians/sec\ntime \\(t\\) is defined as \\(t = \\frac{ (i \\cdot \\Delta t )}{T}\\) where \\(T\\) is the total time",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-transform",
+    "href": "timeseries/fourier.html#fourier-transform",
+    "title": "2  Fourier Analysis",
+    "section": "2.11 Fourier Transform",
+    "text": "2.11 Fourier Transform\nThe Fourier transform of a function \\(f(x)\\) is a complex valued function \\(F(\\omega)\\)\n\n\n\n\n\n\nFourier Transform\n\n\n\n\\[\nFT(f)  = F( \\omega ) = \\int_{-\\infty}^{\\infty} f(x) e^{- i x \\omega } dx\n\\]\n\n\nRemembering that \\(\\omega = 2 \\pi f\\)",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-transform-prism",
+    "href": "timeseries/fourier.html#fourier-transform-prism",
+    "title": "2  Fourier Analysis",
+    "section": "2.12 Fourier Transform: Prism",
+    "text": "2.12 Fourier Transform: Prism\n\n\n\n\n\n\n\n\n\n\n\n(a) Illustration of a prism\n\n\n\n\n\n\n\n\n\n\n\n(b) A real prism\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Newton’s light experiements\n\n\n\n\n\n\n\n\n\n\n\n(d) Newtons critical insight\n\n\n\n\n\n\n\nFigure 2.6: The FFT is a timeseries prism.\n\n\n\nThink of the Fourier Transform like a prism: the input has numerous signals all combined: the FT separates the signals into sinusoidal elements and assigns a ‘power’, or level, to each component.",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-analysis-r",
+    "href": "timeseries/fourier.html#fourier-analysis-r",
+    "title": "2  Fourier Analysis",
+    "section": "2.13 Fourier Analysis: R",
+    "text": "2.13 Fourier Analysis: R\nSuppose you have a time series, \\(g\\) that has \\(n\\) samples:\n\nIn R you can get the Fourier transform by using the function fft (Fast Fourier Transform)\nfft works fastest when the number of samples is a power of 2\nif \\(n\\) is not a power of 2, can zero-pad to closest power\nthe fft function returns a complex valued vector n-samples long\nit is a good idea to remove the mean from the signal before fft\nthe fft is symmetric: usually we display only half\nUse functions Mod, and Arg to extract the Modulus and Phase Angle\nParseval’s theorem: \\[\n\\sum^{n} \\text{Abs}(fft)^2 = \\sum^{n} \\text{Abs}(g)^2\n\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#sampling-and-aliasing",
+    "href": "timeseries/fourier.html#sampling-and-aliasing",
+    "title": "2  Fourier Analysis",
+    "section": "2.14 Sampling and Aliasing",
+    "text": "2.14 Sampling and Aliasing\n\nIn nearly all cases in data analysis in the earth sciences we sample the data at discrete intervals.\nThis means that signals are never continuous.\nWe can think of this process as multiplying the underlying continuous (natural) signal by a comb function and a boxcar function.\nthe boxcar function is applied because our observations have a finite time interval.\n\nThe Nyquist theorem states that we must sample an underlying signal at least twice per cycle in order to reconstruct a particular frequency. Or, if we sample at a rate of \\(\\Delta t\\), then \\[\nf_{Nyquist} = \\frac{1}{2\\Delta t}\n\\] is the maximum frequency we can extract without aliasing.",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#fourier-analysis-2",
+    "href": "timeseries/fourier.html#fourier-analysis-2",
+    "title": "2  Fourier Analysis",
+    "section": "2.15 Fourier Analysis",
+    "text": "2.15 Fourier Analysis\n\nAmplitude spectrum: \\[\nA = \\sqrt{a^2 + b^2}\n\\]\nPhase spectrum: \\[\n\\phi = \\tan^{-1}\\left( \\frac{b}{a} \\right)\n\\]\n\nWe can think of the amplitude spectrum is offering information on the statistical properties of the underlying time series: How much variance of the original signal is accounted for in each Fourier component?\nThis is the underlying concept of the Power Spectrum.",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#convolution-and-correlation",
+    "href": "timeseries/fourier.html#convolution-and-correlation",
+    "title": "2  Fourier Analysis",
+    "section": "2.16 Convolution and Correlation",
+    "text": "2.16 Convolution and Correlation\nConvolution and Correlation of two time series are related:\n\n\n\n\n\n\nCross Correlation\n\n\n\n\\[\n\\left(f \\star  g\\right)(t) \\equiv \\int_{-\\infty}^{\\infty} f^{\\ast}(\\tau)g(t+\\tau) d\\tau\n\\]\n\n\nTo get the correlation: shift, multiply, sum\n\n\n\n\n\n\nConvolution (Time reversed correlation)\n\n\n\n\\[\n\\left(f \\circledast  g\\right)(t) \\equiv \\int_{-\\infty}^{\\infty} f(\\tau)g(t - \\tau) d\\tau  \n\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#shift-theorem",
+    "href": "timeseries/fourier.html#shift-theorem",
+    "title": "2  Fourier Analysis",
+    "section": "2.17 Shift Theorem",
+    "text": "2.17 Shift Theorem\nShifting the time series multiplies the FT by a complex exponential.\n\n\n\n\n\n\nTheorem\n\n\n\n\\[\nFT( g(x-a) ) = e^{-i \\omega a} G(\\omega)\n\\]\n\n\nStart with the definition of the FT: \\(FT(g) = \\int g e^{-i\\omega t} dt\\)\n\n\n\n\n\n\nProof\n\n\n\n\\[\n\\int_{-\\infty}^{\\infty} f(x-a) e^{- i 2 \\pi x s}dx\n\\]\nSubstitute \\(u=x-a\\), so that \\(du=dx\\) and \\(x = u+a\\):\n\\[\n\\int_{-\\infty}^{\\infty} f(u) e^{-i 2 \\pi (u+a) s}du = \\int_{-\\infty}^{\\infty} f(u) e^{-i 2 \\pi u s}   e^{-i 2 \\pi a s} du = e^{-i 2 \\pi a s}  F(s)\n\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#convolution-theorem",
+    "href": "timeseries/fourier.html#convolution-theorem",
+    "title": "2  Fourier Analysis",
+    "section": "2.18 Convolution Theorem",
+    "text": "2.18 Convolution Theorem\nProve convolution theorem: \\[\nFT\\left[ \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau \\right] = F(\\omega)G(\\omega)\n\\] Or, convolution in the time domain is multiplication in the frequency domain.\n\n\n\n\n\n\nProof of Convolution Theorem\n\n\n\n\\[\\begin{eqnarray*}\nFT\\left[ \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau)d\\tau \\right] &=& \\\\\n\\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau)e^{-i \\omega t }d\\tau dt &=& \\\\\n\\int_{-\\infty}^{\\infty} f(\\tau)  \\int_{-\\infty}^{\\infty} g(t-\\tau)e^{-i \\omega t } dt d\\tau &=& \\\\\n\\int_{-\\infty}^{\\infty} f(\\tau)  e^{-i \\omega \\tau } G(\\omega) d\\tau &=&\nF(\\omega)G(\\omega) \\quad \\square\n\\end{eqnarray*}\\]\n\n\nMultiplication in the time domain is convolution in the frequency domain \\[\ng(t) \\times f(t) \\Leftrightarrow F(\\omega) \\circledast G(\\omega)\n\\] Multiplication in the frequency domain is convolution in the time domain \\[\nF(\\omega) \\times G(\\omega) \\Leftrightarrow  g(t)\\circledast f(t)\n\\]",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#convolution",
+    "href": "timeseries/fourier.html#convolution",
+    "title": "2  Fourier Analysis",
+    "section": "2.19 Convolution",
+    "text": "2.19 Convolution\n\nAny discrete measurement of a continuous process\nSeismogram\nClimate Cycles\nFiltering\nConvolution is the way we describe the interaction of signal processes\n\nExample: Seismic Data\n\nSource\nEarth Structure\nInstrument\nAn observed signal can be modeled as a convolution of these processes\n\n\n\n\n\n\n\n\n\n\n\n\n(a) An earthquake occures in the earths crust.\n\n\n\n\n\n\n\n\n\n\n\n(b) The composition and geometry of the fault effect the propagation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) A seismometer records an event at the surface.\n\n\n\n\n\n\n\n\n\n\n\n(d) Finally we have a signal to analyze.\n\n\n\n\n\n\n\nFigure 2.7: A signal can be thought of as a convolution of source, earth, and instrument.\n\n\n\n\\[\nSource  ~~\\bigotimes Earth ~~ \\bigotimes ~~ Instrument ~~= ~~Signal\n\\]\n\n\n\n\n\n\n\n\nFigure 2.8: An example of convolution\n\n\n\n\n\n\n\n\nConvolution Explained",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#convolution-thermometer-reading",
+    "href": "timeseries/fourier.html#convolution-thermometer-reading",
+    "title": "2  Fourier Analysis",
+    "section": "2.20 Convolution: Thermometer Reading",
+    "text": "2.20 Convolution: Thermometer Reading\n\nIf you are measuring a temperature and the ambient temperature suddenly drops\nWhat do you observe?\nObserve = Temp \\(\\circledast\\) Thermometer\nThe observation is the step function of the temperature convolved with the response function of the thermometer",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#convolution-1",
+    "href": "timeseries/fourier.html#convolution-1",
+    "title": "2  Fourier Analysis",
+    "section": "2.21 Convolution",
+    "text": "2.21 Convolution\n\nConvolution is correlation with one of the time series reversed\nA \\(\\circledast\\) B = correlate A(t) with B(-t)\nor: flip one time series and correlate\n\nConvolution is the way processes interact in the earth. This is a model, of course, but it seems to work.\n\\[\nC(t) = \\int_{-\\infty}^{\\infty} A(t) B(-t) dt\n\\]\nConvolution is the cross correlation of one time series with the time-reversed version of another time series.",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#periodogram",
+    "href": "timeseries/fourier.html#periodogram",
+    "title": "2  Fourier Analysis",
+    "section": "2.22 Periodogram",
+    "text": "2.22 Periodogram\nRecall the definition of the Autocorrelation: \\[\nAuto(\\tau) = \\frac{E\\left[ (X_{t} - \\mu ) (X_{t+\\tau} - \\mu) \\right]}{\\sigma^{2}}\n\\] \\[\nFT\\left[ \\int_{-\\infty}^{\\infty} f(\\tau) g(t+\\tau)d\\tau \\right] = F(\\omega)G^{\\ast}(\\omega)\n\\] Let \\(g=f\\) in the convolution theorem, get Fourier Transform Autocorrelation: \\[\nFT\\left[ \\int_{-\\infty}^{\\infty} f(\\tau) f(t+\\tau)d\\tau \\right] = F(\\omega)F^{\\ast}(\\omega) = \\vert F(\\omega) \\vert^{2}\n\\] This is commonly called the periodogram. It is a simple measure of the variance of each fourier component (sinusoid) represented in the signal.\n\n\n\n\n\n\nWarning\n\n\n\nThe periodogram is not a good estimator of spectrum.\n\n\n\nThe periodogram is not a consistent estimator of the true underlying spectrum\nAdding more data increases frequency resolution, but does not reduce variance\nMust devise smoothing method to get around this problem\nSmooth the periodogram\nAverage multiple spectra from multiple realizations of the time series (welch’s method)\n\n\n\n\n\n\n\n\n\n\n\n\n(a) DFT with 64 samples\n\n\n\n\n\n\n\n\n\n\n\n(b) DFT with 128 samples\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) DFT with 256 samples\n\n\n\n\n\n\n\n\n\n\n\n(d) DFT with 1024 samples\n\n\n\n\n\n\n\nFigure 2.9: Periodogram example\n\n\n\n\n\n\n\n\n\nFigure 2.10: Raw Spectrum\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) frequency bandwidth = 0.00113\n\n\n\n\n\n\n\n\n\n\n\n(b) frequency bandwidth = 0.00298\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) frequency bandwidth = 0.00564\n\n\n\n\n\n\n\n\n\n\n\n(d) frequency bandwidth = 0.00851\n\n\n\n\n\n\n\nFigure 2.11: Smoothed Periodogram example\n\n\n\n\nWe usually scale the power spectra using one of several methods:\n\nN (periodogram)\nVar(Y)\nStd(Y)\n\nSometimes it is useful to remove all scales from the spectrum: plot as decibels\nA decibel is the log of the ratio of amplitudes\n\\(dB = 10 \\log(A/A_{0})\\)\nIf the power spectrum is needed, use\n\\(dB = 20\\log (A/A_{0})\\)",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#welchs-method",
+    "href": "timeseries/fourier.html#welchs-method",
+    "title": "2  Fourier Analysis",
+    "section": "2.23 Welch’s Method",
+    "text": "2.23 Welch’s Method\n\nDivide time series into smaller subsets\nMay be overlapping\nApply window (or taper) to each time series\nCalculate power spectrum of subset\nAverage all spectra to get smoothed spectrum\n\n\n\n\n\n\n\n\n\n\n\n\n(a) 1 DFT taper with NO smoothing\n\n\n\n\n\n\n\n\n\n\n\n(b) ALL taper with NO smoothing\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Welch’s method with smoothing and taper\n\n\n\n\n\n\n\n\n\n\n\n(d) Welch’s method with stft and mean\n\n\n\n\n\n\n\nFigure 2.12: Welch’s method example\n\n\n\n\n\n\n\n\n\nFigure 2.13: Welch Method Combind",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#filtering-and-convolution",
+    "href": "timeseries/fourier.html#filtering-and-convolution",
+    "title": "2  Fourier Analysis",
+    "section": "2.24 Filtering and Convolution",
+    "text": "2.24 Filtering and Convolution\n\nDesign Filter in Frequency Domain\nGet FT of signal\nMultiply FT of signal with filter\nInverse FT back to time domain",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "timeseries/fourier.html#coherency",
+    "href": "timeseries/fourier.html#coherency",
+    "title": "2  Fourier Analysis",
+    "section": "2.25 Coherency",
+    "text": "2.25 Coherency\nA standard measure of the similarity of a pair of signals is the coherency function defined by, \\[\nC(f) = \\frac{S_1(f) \\cdot S_2(f)} {\\sqrt{S_1^2(f) S_2^2(f)} }\n\\] where S1 and S2 are the complex Fourier transforms of the respective signals and (\\(\\cdot\\)) is the dot product. In the case where we have multi-taper estimates of the spectra we can form the coherency function by using all n of the eigenspectra for each signal. In this case the coherence function is calculated by taking the inner vector product of the complex eigenspectra at each frequency, \\[\nC(f) = \\frac{\\sum_{k=1}^n S_{1k}(f) \\cdot S_{2k}^{*}(f) }{\n\\sqrt{S_1^2(f) S_2^2(f)} }\n\\] where * represents complex conjugation. The coherency function ranges from 0 to 1 and is measure of the coherency at each frequency.",
     "crumbs": [
       "Time Series",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fourier Analysis</span>"

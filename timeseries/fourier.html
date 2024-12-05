@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -101,7 +104,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -190,11 +193,32 @@ window.Quarto = {
   <li><a href="#discrete-sampling" id="toc-discrete-sampling" class="nav-link" data-scroll-target="#discrete-sampling"><span class="header-section-number">2.2</span> Discrete Sampling</a></li>
   <li><a href="#cycles-phase-and-frequency" id="toc-cycles-phase-and-frequency" class="nav-link" data-scroll-target="#cycles-phase-and-frequency"><span class="header-section-number">2.3</span> Cycles, Phase and Frequency</a></li>
   <li><a href="#time-series-basics" id="toc-time-series-basics" class="nav-link" data-scroll-target="#time-series-basics"><span class="header-section-number">2.4</span> Time Series: Basics</a></li>
+  <li><a href="#trig-functions" id="toc-trig-functions" class="nav-link" data-scroll-target="#trig-functions"><span class="header-section-number">2.5</span> Trig Functions</a></li>
+  <li><a href="#eulers-formula" id="toc-eulers-formula" class="nav-link" data-scroll-target="#eulers-formula"><span class="header-section-number">2.6</span> Euler’s Formula</a></li>
+  <li><a href="#fourier-analysis" id="toc-fourier-analysis" class="nav-link" data-scroll-target="#fourier-analysis"><span class="header-section-number">2.7</span> Fourier Analysis</a></li>
+  <li><a href="#links-to-animations" id="toc-links-to-animations" class="nav-link" data-scroll-target="#links-to-animations"><span class="header-section-number">2.8</span> Links to animations</a></li>
+  <li><a href="#fourier-series" id="toc-fourier-series" class="nav-link" data-scroll-target="#fourier-series"><span class="header-section-number">2.9</span> Fourier Series</a></li>
+  <li><a href="#fourier-analysis-1" id="toc-fourier-analysis-1" class="nav-link" data-scroll-target="#fourier-analysis-1"><span class="header-section-number">2.10</span> Fourier Analysis</a></li>
+  <li><a href="#fourier-transform" id="toc-fourier-transform" class="nav-link" data-scroll-target="#fourier-transform"><span class="header-section-number">2.11</span> Fourier Transform</a></li>
+  <li><a href="#fourier-transform-prism" id="toc-fourier-transform-prism" class="nav-link" data-scroll-target="#fourier-transform-prism"><span class="header-section-number">2.12</span> Fourier Transform: Prism</a></li>
+  <li><a href="#fourier-analysis-r" id="toc-fourier-analysis-r" class="nav-link" data-scroll-target="#fourier-analysis-r"><span class="header-section-number">2.13</span> Fourier Analysis: <strong>R</strong></a></li>
+  <li><a href="#sampling-and-aliasing" id="toc-sampling-and-aliasing" class="nav-link" data-scroll-target="#sampling-and-aliasing"><span class="header-section-number">2.14</span> Sampling and Aliasing</a></li>
+  <li><a href="#fourier-analysis-2" id="toc-fourier-analysis-2" class="nav-link" data-scroll-target="#fourier-analysis-2"><span class="header-section-number">2.15</span> Fourier Analysis</a></li>
+  <li><a href="#convolution-and-correlation" id="toc-convolution-and-correlation" class="nav-link" data-scroll-target="#convolution-and-correlation"><span class="header-section-number">2.16</span> Convolution and Correlation</a></li>
+  <li><a href="#shift-theorem" id="toc-shift-theorem" class="nav-link" data-scroll-target="#shift-theorem"><span class="header-section-number">2.17</span> Shift Theorem</a></li>
+  <li><a href="#convolution-theorem" id="toc-convolution-theorem" class="nav-link" data-scroll-target="#convolution-theorem"><span class="header-section-number">2.18</span> Convolution Theorem</a></li>
+  <li><a href="#convolution" id="toc-convolution" class="nav-link" data-scroll-target="#convolution"><span class="header-section-number">2.19</span> Convolution</a></li>
+  <li><a href="#convolution-thermometer-reading" id="toc-convolution-thermometer-reading" class="nav-link" data-scroll-target="#convolution-thermometer-reading"><span class="header-section-number">2.20</span> Convolution: Thermometer Reading</a></li>
+  <li><a href="#convolution-1" id="toc-convolution-1" class="nav-link" data-scroll-target="#convolution-1"><span class="header-section-number">2.21</span> Convolution</a></li>
+  <li><a href="#periodogram" id="toc-periodogram" class="nav-link" data-scroll-target="#periodogram"><span class="header-section-number">2.22</span> Periodogram</a></li>
+  <li><a href="#welchs-method" id="toc-welchs-method" class="nav-link" data-scroll-target="#welchs-method"><span class="header-section-number">2.23</span> Welch’s Method</a></li>
+  <li><a href="#filtering-and-convolution" id="toc-filtering-and-convolution" class="nav-link" data-scroll-target="#filtering-and-convolution"><span class="header-section-number">2.24</span> Filtering and Convolution</a></li>
+  <li><a href="#coherency" id="toc-coherency" class="nav-link" data-scroll-target="#coherency"><span class="header-section-number">2.25</span> Coherency</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../timeseries/timeseries.html">Time Series</a></li><li class="breadcrumb-item"><a href="../timeseries/fourier.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Fourier Analysis</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -233,7 +257,7 @@ window.Quarto = {
 <div id="fig-one-wiggle" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-one-wiggle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fourier_files/figure-html/fig-one-wiggle-1.png" class="img-fluid figure-img" width="672">
+<a href="fourier_files/figure-html/fig-one-wiggle-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;2.1: A single time series"><img src="fourier_files/figure-html/fig-one-wiggle-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-one-wiggle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.1: A single time series
@@ -253,7 +277,7 @@ Figure&nbsp;2.1: A single time series
 <div id="fig-three-wiggles" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-three-wiggles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fourier_files/figure-html/fig-three-wiggles-1.png" class="img-fluid figure-img" width="672">
+<a href="fourier_files/figure-html/fig-three-wiggles-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2.2: The same signal can be represented as a sum of sinusoids."><img src="fourier_files/figure-html/fig-three-wiggles-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-three-wiggles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.2: The same signal can be represented as a sum of sinusoids.
@@ -276,7 +300,7 @@ Figure&nbsp;2.2: The same signal can be represented as a sum of sinusoids.
 <div id="fig-discrete-sampling" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-discrete-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fourier_files/figure-html/fig-discrete-sampling-1.png" class="img-fluid figure-img" width="672">
+<a href="fourier_files/figure-html/fig-discrete-sampling-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2.3: A wave is sampled at discrete points in time."><img src="fourier_files/figure-html/fig-discrete-sampling-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-discrete-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.3: A wave is sampled at discrete points in time.
@@ -291,19 +315,21 @@ Figure&nbsp;2.3: A wave is sampled at discrete points in time.
 <li><span class="math inline">\(\delta t\)</span> : sampling rate (s)</li>
 </ul>
 </section>
-<section id="cycles-phase-and-frequency" class="level2" data-number="2.3">
+<section id="cycles-phase-and-frequency" class="level2 page-columns page-full" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="cycles-phase-and-frequency"><span class="header-section-number">2.3</span> Cycles, Phase and Frequency</h2>
-<div id="fig-cycles" class="quarto-float quarto-figure quarto-figure-center anchored">
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-cycles" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cycles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/spctr015.jpg" id="fig-cycles" class="img-fluid figure-img">
+<a href="../images/spctr015.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;2.4: Cycles and Sines"><img src="../images/spctr015.jpg" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-cycles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.4
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cycles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Cycles and Sines
 </figcaption>
 </figure>
 </div>
-<p>The rotating pen height in <a href="#fig-cycles" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> represents the signal. <span class="math display">\[
+</div></div><p>The rotating pen height in <a href="#fig-cycles" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> represents the signal. <span class="math display">\[
 Y_{i} = A \sin \left( 2 \pi x_{i}/X + \phi \right)
    \]</span> <span class="math display">\[
 \alpha_{i} = \left( 2 \pi x_{i}/X + \phi \right)
@@ -355,6 +381,730 @@ Trig Identities
 \end{align*}\]</span></p>
 </div>
 </div>
+</section>
+<section id="trig-functions" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="trig-functions"><span class="header-section-number">2.5</span> Trig Functions</h2>
+<p>Consider the Taylor series expansions:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+e^x &amp;=&amp; 1 + x +\frac{x^2}{2!}+\frac{x^3}{3!}+ \cdots \\
+\sin(x)  &amp;=&amp; x - \frac{x^3}{3!} +  \frac{x^5}{5!} - \frac{x^7}{7!}  + \cdots \\
+\cos(x)   &amp;=&amp; 1 - \frac{x^2}{2!} +  \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots
+\end{eqnarray*}\]</span></p>
+<p>Plug in <span class="math inline">\(ix\)</span> in the formula for <span class="math inline">\(e^x\)</span> get: <span class="math display">\[
+e^{ix} = 1 + ix +\frac{(ix)^2}{2!}+\frac{(ix)^3}{3!}+\frac{(ix)^4}{4!}+\frac{(ix)^5}{5!}+\frac{(ix)^6}{6!}+\frac{(ix)^7}{7!}+\cdots
+\]</span> Expanding out the complex numbers gives the trigonometric functions. <span class="math display">\[
+e^{ix} = \cos(x) + i \sin(x)
+\]</span></p>
+</section>
+<section id="eulers-formula" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="eulers-formula"><span class="header-section-number">2.6</span> Euler’s Formula</h2>
+<p><span class="math display">\[
+e^{i\theta} = \cos(\theta) + i \sin(\theta)
+\]</span> And <span class="math display">\[
+e^{-i\theta} = \cos(\theta) - i \sin(\theta)
+\]</span> Add these together: <span class="math display">\[
+e^{i\theta} + e^{-i\theta} = 2 \cos(\theta)
+\]</span> or: <span class="math display">\[
+\cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2}
+\]</span> Similarly, by subtracting: <span class="math display">\[
+\sin(\theta) = \frac{e^{i\theta} - e^{-i\theta}}{2i}
+\]</span></p>
+</section>
+<section id="fourier-analysis" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="fourier-analysis"><span class="header-section-number">2.7</span> Fourier Analysis</h2>
+<ul>
+<li>The Fourier Transform (FT) is a series of complex numbers <span class="math inline">\(\left[ a, b \right] = a + ib\)</span>.</li>
+<li>The real and imaginary parts of the FT can be combined to extract different information from the FT.</li>
+<li>The Amplitude spectrum is the modulus of the complex numbers: <span class="math display">\[
+A_{i} = \sqrt{a_{i} ^2 + b_{i} ^2}
+\]</span></li>
+<li>The phase spectrum is the phase angle: <span class="math display">\[
+\phi_{i}  = \tan^{-1}\left( \frac{b_{i} }{a_{i} } \right)
+\]</span></li>
+</ul>
+</section>
+<section id="links-to-animations" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="links-to-animations"><span class="header-section-number">2.8</span> Links to animations</h2>
+<ul>
+<li><a href="https://www.geogebra.org/m/yBetCdjK">Geometric Fourier Transform Animation by Michael Borcherds</a></li>
+<li><a href="https://www.youtube.com/watch?v=spUNpyF58BY">What is the Fourier Transform? by 3Blue1Brown</a></li>
+</ul>
+</section>
+<section id="fourier-series" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="fourier-series"><span class="header-section-number">2.9</span> Fourier Series</h2>
+<p><span class="math display">\[\begin{eqnarray*}
+y_{k} &amp;=&amp;A \cos(\omega t - \phi) \\
+&amp;=&amp; A \cos \omega t \cos \phi + A \sin \omega t \sin \phi \\
+&amp;=&amp;  \alpha_{k} \cos (\omega t ) + \beta_{k} \sin(\omega t)
+\end{eqnarray*}\]</span></p>
+<p>The Fourier Coefficients are <span class="math inline">\(\alpha_{k} , \beta_{k}\)</span></p>
+<p>This leads to Fourier’s Theorem: <span class="math display">\[
+Y = \sum_{k=0}^{\infty} A_{k} \cos(k\theta + \phi_{k})
+\]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+\beta_{k} &amp;=&amp; \frac{2}{k}\sum_{j=0}^{n-1} Y_{j} \sin \left( \frac{2\pi j k}{n} \right) \\
+\alpha_{k} &amp;=&amp; \frac{2}{k}\sum_{j=0}^{n-1} Y_{j} \cos \left( \frac{2\pi j k}{n} \right) \\
+\end{eqnarray*}\]</span></p>
+<p>The Zero-th value of the FT is the Mean value of the time series: <span class="math display">\[
+\alpha_{0} = \frac{1}{n} \sum_{j=0}^{n-1} Y_{j}
+\]</span> This is usually called the DC or “direct current”.</p>
+<p>Given the definition of the Fourier Series above, the spectrum is defined as: <span class="math display">\[\begin{eqnarray*}
+A_{i} &amp;=&amp; \sqrt{a_{i} ^2 + b_{i} ^2} \\
+\phi_{i}  &amp;=&amp;  \tan^{-1}\left( \frac{b_{i} }{a_{i} } \right)
+\end{eqnarray*}\]</span></p>
+<div id="fig-fft-explained" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fft-explained-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;2.5: FFT Explained"><img src="../images/placeholder.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fft-explained-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: FFT Explained
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="fourier-analysis-1" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="fourier-analysis-1"><span class="header-section-number">2.10</span> Fourier Analysis</h2>
+<ul>
+<li>period = T/cycle</li>
+<li>sample rate =<span class="math inline">\(\Delta t\)</span></li>
+<li>frequency <span class="math inline">\(f=1/T\)</span> cycles/s</li>
+<li>Sampling Frequency = <span class="math inline">\(\frac{1}{\Delta t } = f_{sampling}\)</span></li>
+</ul>
+<p>if <span class="math inline">\(y =  \cos( \theta )    = \cos( \omega t )\)</span></p>
+<ul>
+<li><span class="math inline">\(\theta\)</span> is in units of radians <span class="math inline">\(= 2 \pi f t\)</span></li>
+<li>there are <span class="math inline">\(2 \pi\)</span> radians per cycle</li>
+<li>we define the angular frequency <span class="math inline">\(\omega = 2 \pi f\)</span> radians/sec</li>
+<li>time <span class="math inline">\(t\)</span> is defined as <span class="math inline">\(t = \frac{ (i \cdot \Delta t )}{T}\)</span> where <span class="math inline">\(T\)</span> is the total time</li>
+</ul>
+</section>
+<section id="fourier-transform" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="fourier-transform"><span class="header-section-number">2.11</span> Fourier Transform</h2>
+<p>The Fourier transform of a function <span class="math inline">\(f(x)\)</span> is a complex valued function <span class="math inline">\(F(\omega)\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Fourier Transform">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fourier Transform
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+FT(f)  = F( \omega ) = \int_{-\infty}^{\infty} f(x) e^{- i x \omega } dx
+\]</span></p>
+</div>
+</div>
+<p>Remembering that <span class="math inline">\(\omega = 2 \pi f\)</span></p>
+</section>
+<section id="fourier-transform-prism" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="fourier-transform-prism"><span class="header-section-number">2.12</span> Fourier Transform: Prism</h2>
+<div id="fig-prism" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-prism" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-prism-cartoon" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-prism-cartoon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/prism1.jpg" class="lightbox" data-gallery="fig-prism" title="Figure&nbsp;2.6&nbsp;(a): Illustration of a prism"><img src="../images/prism1.jpg" class="img-fluid figure-img" data-ref-parent="fig-prism"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-prism-cartoon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Illustration of a prism
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-prism" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-prism-real" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-prism-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/dispersive_prism.png" class="lightbox" data-gallery="fig-prism" title="Figure&nbsp;2.6&nbsp;(b): A real prism"><img src="../images/dispersive_prism.png" class="img-fluid figure-img" data-ref-parent="fig-prism"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-prism-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) A real prism
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-prism" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-newton-prism" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-newton-prism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/newton-prsim.jpg" class="lightbox" data-gallery="fig-prism" title="Figure&nbsp;2.6&nbsp;(c): Newton’s light experiements"><img src="../images/newton-prsim.jpg" class="img-fluid figure-img" data-ref-parent="fig-prism"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-newton-prism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Newton’s light experiements
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-prism" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-newton-insight" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-newton-insight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/Newton-Light-crucial-experiment.jpg" class="lightbox" data-gallery="fig-prism" title="Figure&nbsp;2.6&nbsp;(d): Newtons critical insight"><img src="../images/Newton-Light-crucial-experiment.jpg" class="img-fluid figure-img" data-ref-parent="fig-prism"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-newton-insight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Newtons critical insight
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: The FFT is a timeseries prism.
+</figcaption>
+</figure>
+</div>
+<p>Think of the Fourier Transform like a prism: the input has numerous signals all combined: the FT separates the signals into sinusoidal elements and assigns a ‘power’, or level, to each component.</p>
+</section>
+<section id="fourier-analysis-r" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="fourier-analysis-r"><span class="header-section-number">2.13</span> Fourier Analysis: <strong>R</strong></h2>
+<p>Suppose you have a time series, <span class="math inline">\(g\)</span> that has <span class="math inline">\(n\)</span> samples:</p>
+<ul>
+<li>In <strong>R</strong> you can get the Fourier transform by using the function fft (Fast Fourier Transform)</li>
+<li>fft works fastest when the number of samples is a power of 2</li>
+<li>if <span class="math inline">\(n\)</span> is not a power of 2, can zero-pad to closest power</li>
+<li>the fft function returns a complex valued vector n-samples long</li>
+<li>it is a good idea to remove the mean from the signal before fft</li>
+<li>the fft is symmetric: usually we display only half</li>
+<li>Use functions Mod, and Arg to extract the Modulus and Phase Angle</li>
+<li>Parseval’s theorem: <span class="math display">\[
+\sum^{n} \text{Abs}(fft)^2 = \sum^{n} \text{Abs}(g)^2
+\]</span></li>
+</ul>
+</section>
+<section id="sampling-and-aliasing" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="sampling-and-aliasing"><span class="header-section-number">2.14</span> Sampling and Aliasing</h2>
+<ul>
+<li>In nearly all cases in data analysis in the earth sciences we sample the data at discrete intervals.</li>
+<li>This means that signals are never continuous.</li>
+<li>We can think of this process as multiplying the underlying continuous (natural) signal by a comb function and a boxcar function.</li>
+<li>the boxcar function is applied because our observations have a finite time interval.</li>
+</ul>
+<p>The Nyquist theorem states that we must sample an underlying signal at least twice per cycle in order to reconstruct a particular frequency. Or, if we sample at a rate of <span class="math inline">\(\Delta t\)</span>, then <span class="math display">\[
+f_{Nyquist} = \frac{1}{2\Delta t}
+\]</span> is the maximum frequency we can extract without aliasing.</p>
+</section>
+<section id="fourier-analysis-2" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="fourier-analysis-2"><span class="header-section-number">2.15</span> Fourier Analysis</h2>
+<ul>
+<li>Amplitude spectrum: <span class="math display">\[
+A = \sqrt{a^2 + b^2}
+\]</span></li>
+<li>Phase spectrum: <span class="math display">\[
+\phi = \tan^{-1}\left( \frac{b}{a} \right)
+\]</span></li>
+</ul>
+<p>We can think of the amplitude spectrum is offering information on the statistical properties of the underlying time series: How much variance of the original signal is accounted for in each Fourier component?</p>
+<p>This is the underlying concept of the <em>Power Spectrum</em>.</p>
+</section>
+<section id="convolution-and-correlation" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="convolution-and-correlation"><span class="header-section-number">2.16</span> Convolution and Correlation</h2>
+<p>Convolution and Correlation of two time series are related:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Cross Correlation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cross Correlation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\left(f \star  g\right)(t) \equiv \int_{-\infty}^{\infty} f^{\ast}(\tau)g(t+\tau) d\tau
+\]</span></p>
+</div>
+</div>
+<p>To get the correlation: shift, multiply, sum</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Convolution (Time reversed correlation) ">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Convolution (Time reversed correlation)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\left(f \circledast  g\right)(t) \equiv \int_{-\infty}^{\infty} f(\tau)g(t - \tau) d\tau  
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="shift-theorem" class="level2" data-number="2.17">
+<h2 data-number="2.17" class="anchored" data-anchor-id="shift-theorem"><span class="header-section-number">2.17</span> Shift Theorem</h2>
+<p>Shifting the time series multiplies the FT by a complex exponential.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Theorem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+FT( g(x-a) ) = e^{-i \omega a} G(\omega)
+\]</span></p>
+</div>
+</div>
+<p>Start with the definition of the FT: <span class="math inline">\(FT(g) = \int g e^{-i\omega t} dt\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} f(x-a) e^{- i 2 \pi x s}dx
+\]</span></p>
+<p>Substitute <span class="math inline">\(u=x-a\)</span>, so that <span class="math inline">\(du=dx\)</span> and <span class="math inline">\(x = u+a\)</span>:</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} f(u) e^{-i 2 \pi (u+a) s}du = \int_{-\infty}^{\infty} f(u) e^{-i 2 \pi u s}   e^{-i 2 \pi a s} du = e^{-i 2 \pi a s}  F(s)
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="convolution-theorem" class="level2" data-number="2.18">
+<h2 data-number="2.18" class="anchored" data-anchor-id="convolution-theorem"><span class="header-section-number">2.18</span> Convolution Theorem</h2>
+<p>Prove convolution theorem: <span class="math display">\[
+FT\left[ \int_{-\infty}^{\infty} f(\tau) g(t-\tau) d\tau \right] = F(\omega)G(\omega)
+\]</span> Or, convolution in the time domain is multiplication in the frequency domain.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Proof of Convolution Theorem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof of Convolution Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\begin{eqnarray*}
+FT\left[ \int_{-\infty}^{\infty} f(\tau) g(t-\tau)d\tau \right] &amp;=&amp; \\
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(\tau) g(t-\tau)e^{-i \omega t }d\tau dt &amp;=&amp; \\
+\int_{-\infty}^{\infty} f(\tau)  \int_{-\infty}^{\infty} g(t-\tau)e^{-i \omega t } dt d\tau &amp;=&amp; \\
+\int_{-\infty}^{\infty} f(\tau)  e^{-i \omega \tau } G(\omega) d\tau &amp;=&amp;
+F(\omega)G(\omega) \quad \square
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+<p>Multiplication in the time domain is convolution in the frequency domain <span class="math display">\[
+g(t) \times f(t) \Leftrightarrow F(\omega) \circledast G(\omega)
+\]</span> Multiplication in the frequency domain is convolution in the time domain <span class="math display">\[
+F(\omega) \times G(\omega) \Leftrightarrow  g(t)\circledast f(t)
+\]</span></p>
+</section>
+<section id="convolution" class="level2" data-number="2.19">
+<h2 data-number="2.19" class="anchored" data-anchor-id="convolution"><span class="header-section-number">2.19</span> Convolution</h2>
+<ul>
+<li>Any discrete measurement of a continuous process</li>
+<li>Seismogram</li>
+<li>Climate Cycles</li>
+<li>Filtering</li>
+<li>Convolution is the way we describe the interaction of signal processes</li>
+</ul>
+<p><strong>Example: Seismic Data</strong></p>
+<ul>
+<li>Source</li>
+<li>Earth Structure</li>
+<li>Instrument</li>
+<li>An observed signal can be modeled as a convolution of these processes</li>
+</ul>
+<div id="fig-conv" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-conv" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-earthquake" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-earthquake-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/epicenter.jpg" class="lightbox" data-gallery="fig-conv" title="Figure&nbsp;2.7&nbsp;(a): An earthquake occures in the earths crust."><img src="../images/epicenter.jpg" class="img-fluid figure-img" data-ref-parent="fig-conv"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-earthquake-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) An earthquake occures in the earths crust.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-conv" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-fault-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-fault-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/LG-MineralMtnXsection.JPG" class="lightbox" data-gallery="fig-conv" title="Figure&nbsp;2.7&nbsp;(b): The composition and geometry of the fault effect the propagation."><img src="../images/LG-MineralMtnXsection.JPG" class="img-fluid figure-img" data-ref-parent="fig-conv"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fault-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) The composition and geometry of the fault effect the propagation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-conv" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-seismometer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-seismometer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/F03-09b.jpg" class="lightbox" data-gallery="fig-conv" title="Figure&nbsp;2.7&nbsp;(c): A seismometer records an event at the surface."><img src="../images/F03-09b.jpg" class="img-fluid figure-img" data-ref-parent="fig-conv"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-seismometer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) A seismometer records an event at the surface.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-conv" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-signal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/tseis.jpeg" class="lightbox" data-gallery="fig-conv" title="Figure&nbsp;2.7&nbsp;(d): Finally we have a signal to analyze."><img src="../images/tseis.jpeg" class="img-fluid figure-img" data-ref-parent="fig-conv"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Finally we have a signal to analyze.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.7: A signal can be thought of as a convolution of source, earth, and instrument.
+</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[
+Source  ~~\bigotimes Earth ~~ \bigotimes ~~ Instrument ~~= ~~Signal
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-conv-example" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conv-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fourier_files/figure-html/fig-conv-example-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;2.8: An example of convolution"><img src="fourier_files/figure-html/fig-conv-example-1.png" class="img-fluid figure-img" width="1152"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conv-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.8: An example of convolution
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/placeholder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Convolution Explained"><img src="../images/placeholder.png" class="img-fluid figure-img" alt="Convolution Explained"></a></p>
+<figcaption>Convolution Explained</figcaption>
+</figure>
+</div>
+</section>
+<section id="convolution-thermometer-reading" class="level2" data-number="2.20">
+<h2 data-number="2.20" class="anchored" data-anchor-id="convolution-thermometer-reading"><span class="header-section-number">2.20</span> Convolution: Thermometer Reading</h2>
+<ul>
+<li>If you are measuring a temperature and the ambient temperature suddenly drops</li>
+<li>What do you observe?</li>
+<li>Observe = Temp <span class="math inline">\(\circledast\)</span> Thermometer</li>
+<li>The observation is the step function of the temperature convolved with the response function of the thermometer</li>
+</ul>
+</section>
+<section id="convolution-1" class="level2" data-number="2.21">
+<h2 data-number="2.21" class="anchored" data-anchor-id="convolution-1"><span class="header-section-number">2.21</span> Convolution</h2>
+<ul>
+<li>Convolution is correlation with one of the time series reversed</li>
+<li>A <span class="math inline">\(\circledast\)</span> B = correlate A(t) with B(-t)</li>
+<li>or: flip one time series and correlate</li>
+</ul>
+<p>Convolution is the way processes interact in the earth. This is a model, of course, but it seems to work.</p>
+<p><span class="math display">\[
+C(t) = \int_{-\infty}^{\infty} A(t) B(-t) dt
+\]</span></p>
+<p>Convolution is the cross correlation of one time series with the time-reversed version of another time series.</p>
+</section>
+<section id="periodogram" class="level2" data-number="2.22">
+<h2 data-number="2.22" class="anchored" data-anchor-id="periodogram"><span class="header-section-number">2.22</span> Periodogram</h2>
+<p>Recall the definition of the Autocorrelation: <span class="math display">\[
+Auto(\tau) = \frac{E\left[ (X_{t} - \mu ) (X_{t+\tau} - \mu) \right]}{\sigma^{2}}
+\]</span> <span class="math display">\[
+FT\left[ \int_{-\infty}^{\infty} f(\tau) g(t+\tau)d\tau \right] = F(\omega)G^{\ast}(\omega)
+\]</span> Let <span class="math inline">\(g=f\)</span> in the convolution theorem, get Fourier Transform <em>Autocorrelation</em>: <span class="math display">\[
+FT\left[ \int_{-\infty}^{\infty} f(\tau) f(t+\tau)d\tau \right] = F(\omega)F^{\ast}(\omega) = \vert F(\omega) \vert^{2}
+\]</span> This is commonly called the <em>periodogram</em>. It is a simple measure of the variance of each fourier component (sinusoid) represented in the signal.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The periodogram is not a good estimator of spectrum.</p>
+</div>
+</div>
+<ul>
+<li>The periodogram is not a consistent estimator of the true underlying spectrum</li>
+<li>Adding more data increases frequency resolution, but does not reduce variance</li>
+<li>Must devise smoothing method to get around this problem</li>
+<li>Smooth the periodogram</li>
+<li>Average multiple spectra from multiple realizations of the time series (welch’s method)</li>
+</ul>
+<div id="fig-perio" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-perio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-64" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-64-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio" title="Figure&nbsp;2.9&nbsp;(a): DFT with 64 samples"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-64-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) DFT with 64 samples
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-128" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-128-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio" title="Figure&nbsp;2.9&nbsp;(b): DFT with 128 samples"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-128-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) DFT with 128 samples
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-256" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-256-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio" title="Figure&nbsp;2.9&nbsp;(c): DFT with 256 samples"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-256-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) DFT with 256 samples
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-1024" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-1024-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio" title="Figure&nbsp;2.9&nbsp;(d): DFT with 1024 samples"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-1024-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) DFT with 1024 samples
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.9: Periodogram example
+</figcaption>
+</figure>
+</div>
+<div id="fig-perio-raw" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-perio-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;2.10: Raw Spectrum"><img src="../images/placeholder.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perio-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.10: Raw Spectrum
+</figcaption>
+</figure>
+</div>
+<div id="fig-perio-smoothed" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-perio-smoothed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio-smoothed" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-smooth-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-smooth-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio-smoothed" title="Figure&nbsp;2.11&nbsp;(a): frequency bandwidth = 0.00113"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio-smoothed"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-smooth-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) frequency bandwidth = 0.00113
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio-smoothed" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-smooth-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-smooth-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio-smoothed" title="Figure&nbsp;2.11&nbsp;(b): frequency bandwidth = 0.00298"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio-smoothed"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-smooth-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) frequency bandwidth = 0.00298
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio-smoothed" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-smooth-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-smooth-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio-smoothed" title="Figure&nbsp;2.11&nbsp;(c): frequency bandwidth = 0.00564"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio-smoothed"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-smooth-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) frequency bandwidth = 0.00564
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-perio-smoothed" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-perio-smooth-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-perio-smooth-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-perio-smoothed" title="Figure&nbsp;2.11&nbsp;(d): frequency bandwidth = 0.00851"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-perio-smoothed"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-perio-smooth-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) frequency bandwidth = 0.00851
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perio-smoothed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.11: Smoothed Periodogram example
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>We usually scale the power spectra using one of several methods:
+<ul>
+<li>N (periodogram)</li>
+<li>Var(Y)</li>
+<li>Std(Y)</li>
+</ul></li>
+<li>Sometimes it is useful to remove all scales from the spectrum: plot as decibels</li>
+<li>A decibel is the log of the ratio of amplitudes</li>
+<li><span class="math inline">\(dB = 10 \log(A/A_{0})\)</span></li>
+<li>If the power spectrum is needed, use</li>
+<li><span class="math inline">\(dB = 20\log (A/A_{0})\)</span></li>
+</ul>
+</section>
+<section id="welchs-method" class="level2" data-number="2.23">
+<h2 data-number="2.23" class="anchored" data-anchor-id="welchs-method"><span class="header-section-number">2.23</span> Welch’s Method</h2>
+<ul>
+<li>Divide time series into smaller subsets</li>
+<li>May be overlapping</li>
+<li>Apply window (or taper) to each time series</li>
+<li>Calculate power spectrum of subset</li>
+<li>Average all spectra to get smoothed spectrum</li>
+</ul>
+<div id="fig-welch-method" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-welch-method-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-welch-method" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-welch-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-welch-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-welch-method" title="Figure&nbsp;2.12&nbsp;(a): 1 DFT taper with NO smoothing"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-welch-method"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-welch-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) 1 DFT taper with NO smoothing
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-welch-method" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-welch-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-welch-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-welch-method" title="Figure&nbsp;2.12&nbsp;(b): ALL taper with NO smoothing"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-welch-method"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-welch-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) ALL taper with NO smoothing
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-welch-method" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-welch-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-welch-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-welch-method" title="Figure&nbsp;2.12&nbsp;(c): Welch’s method with smoothing and taper"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-welch-method"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-welch-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Welch’s method with smoothing and taper
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-welch-method" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-welch-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-welch-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="fig-welch-method" title="Figure&nbsp;2.12&nbsp;(d): Welch’s method with stft and mean"><img src="../images/placeholder.png" class="img-fluid figure-img" data-ref-parent="fig-welch-method"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-welch-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Welch’s method with stft and mean
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-welch-method-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.12: Welch’s method example
+</figcaption>
+</figure>
+</div>
+<div id="fig-welch-all" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-welch-all-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/placeholder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figure&nbsp;2.13: Welch Method Combind"><img src="../images/placeholder.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-welch-all-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.13: Welch Method Combind
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="filtering-and-convolution" class="level2" data-number="2.24">
+<h2 data-number="2.24" class="anchored" data-anchor-id="filtering-and-convolution"><span class="header-section-number">2.24</span> Filtering and Convolution</h2>
+<ul>
+<li>Design Filter in Frequency Domain</li>
+<li>Get FT of signal</li>
+<li>Multiply FT of signal with filter</li>
+<li>Inverse FT back to time domain</li>
+</ul>
+</section>
+<section id="coherency" class="level2" data-number="2.25">
+<h2 data-number="2.25" class="anchored" data-anchor-id="coherency"><span class="header-section-number">2.25</span> Coherency</h2>
+<p>A standard measure of the similarity of a pair of signals is the coherency function defined by, <span class="math display">\[
+C(f) = \frac{S_1(f) \cdot S_2(f)} {\sqrt{S_1^2(f) S_2^2(f)} }
+\]</span> where S1 and S2 are the complex Fourier transforms of the respective signals and (<span class="math inline">\(\cdot\)</span>) is the dot product. In the case where we have multi-taper estimates of the spectra we can form the coherency function by using all n of the eigenspectra for each signal. In this case the coherence function is calculated by taking the inner vector product of the complex eigenspectra at each frequency, <span class="math display">\[
+C(f) = \frac{\sum_{k=1}^n S_{1k}(f) \cdot S_{2k}^{*}(f) }{
+\sqrt{S_1^2(f) S_2^2(f)} }
+\]</span> where * represents complex conjugation. The coherency function ranges from 0 to 1 and is measure of the coherency at each frequency.</p>
 
 
 </section>
@@ -790,6 +1540,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
