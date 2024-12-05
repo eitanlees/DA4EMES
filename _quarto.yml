@@ -19,6 +19,7 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    lightbox: true
   pdf:
     documentclass: scrreprt
 

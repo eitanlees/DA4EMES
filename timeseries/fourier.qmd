@@ -106,7 +106,9 @@ segments(x[aa[3]], 0,x[aa[3]],y[aa[3]] , col='blue', lwd=2, xpd=TRUE)
 
 ## Cycles, Phase and Frequency
 
-![](../images/spctr015.jpg){#fig-cycles}
+::: {.column-margin}
+![Cycles and Sines](../images/spctr015.jpg){.lightbox #fig-cycles}
+:::
 
    The rotating pen height in @fig-cycles represents the signal.
    $$
@@ -151,3 +153,498 @@ y_{k} &=&A \cos(\omega t - \phi) \\
  \cos ( u \pm v ) &= \cos u \cos  v   \mp  \sin  u \sin v\\
  \end{align*}
 :::
+
+## Trig Functions
+
+Consider the Taylor series expansions:
+
+\begin{eqnarray*}
+e^x &=& 1 + x +\frac{x^2}{2!}+\frac{x^3}{3!}+ \cdots \\
+\sin(x)  &=& x - \frac{x^3}{3!} +  \frac{x^5}{5!} - \frac{x^7}{7!}  + \cdots \\
+\cos(x)   &=& 1 - \frac{x^2}{2!} +  \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots
+\end{eqnarray*}
+
+Plug in $ix$ in the formula for $e^x$ get:
+$$
+e^{ix} = 1 + ix +\frac{(ix)^2}{2!}+\frac{(ix)^3}{3!}+\frac{(ix)^4}{4!}+\frac{(ix)^5}{5!}+\frac{(ix)^6}{6!}+\frac{(ix)^7}{7!}+\cdots
+$$
+Expanding out the complex numbers gives the trigonometric functions.
+$$
+e^{ix} = \cos(x) + i \sin(x)
+$$
+
+
+## Euler's Formula
+$$
+e^{i\theta} = \cos(\theta) + i \sin(\theta)
+$$
+And
+$$
+e^{-i\theta} = \cos(\theta) - i \sin(\theta)
+$$
+Add these together:
+$$
+e^{i\theta} + e^{-i\theta} = 2 \cos(\theta)
+$$
+or: 
+$$
+\cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2}
+$$
+Similarly, by subtracting:
+$$
+\sin(\theta) = \frac{e^{i\theta} - e^{-i\theta}}{2i}
+$$
+
+
+## Fourier Analysis
+- The Fourier Transform (FT) is 
+a series of complex numbers $\left[ a, b \right] = a + ib$.
+- The real and imaginary parts of the FT can be combined to
+  extract different information from the FT.
+- The Amplitude spectrum is the modulus of the complex numbers:
+$$
+A_{i} = \sqrt{a_{i} ^2 + b_{i} ^2}
+$$
+- The phase spectrum is the phase angle:
+$$
+\phi_{i}  = \tan^{-1}\left( \frac{b_{i} }{a_{i} } \right)
+$$
+
+## Links to animations
+- [Geometric Fourier Transform Animation by Michael Borcherds](https://www.geogebra.org/m/yBetCdjK)
+- [What is the Fourier Transform? by 3Blue1Brown](https://www.youtube.com/watch?v=spUNpyF58BY)
+
+## Fourier Series
+
+\begin{eqnarray*}
+y_{k} &=&A \cos(\omega t - \phi) \\
+&=& A \cos \omega t \cos \phi + A \sin \omega t \sin \phi \\
+&=&  \alpha_{k} \cos (\omega t ) + \beta_{k} \sin(\omega t)
+\end{eqnarray*}
+
+The Fourier Coefficients are $\alpha_{k} , \beta_{k}$
+
+This leads to Fourier's Theorem:
+$$
+Y = \sum_{k=0}^{\infty} A_{k} \cos(k\theta + \phi_{k})
+$$
+
+\begin{eqnarray*}
+\beta_{k} &=& \frac{2}{k}\sum_{j=0}^{n-1} Y_{j} \sin \left( \frac{2\pi j k}{n} \right) \\
+\alpha_{k} &=& \frac{2}{k}\sum_{j=0}^{n-1} Y_{j} \cos \left( \frac{2\pi j k}{n} \right) \\
+\end{eqnarray*}
+
+The Zero-th value of the FT is the  Mean value of the time series:
+$$
+\alpha_{0} = \frac{1}{n} \sum_{j=0}^{n-1} Y_{j}
+$$
+ This is usually called the DC or "direct current". 
+  
+Given the definition of the Fourier Series above, the spectrum is defined as:
+\begin{eqnarray*}
+A_{i} &=& \sqrt{a_{i} ^2 + b_{i} ^2} \\
+\phi_{i}  &=&  \tan^{-1}\left( \frac{b_{i} }{a_{i} } \right)
+\end{eqnarray*}
+
+![FFT Explained](../images/placeholder.png){#fig-fft-explained}
+
+## Fourier Analysis
+
+- period = T/cycle 
+- sample rate =$\Delta t$
+- frequency $f=1/T$ cycles/s
+- Sampling Frequency = $\frac{1}{\Delta t } = f_{sampling}$ 
+
+if $y =  \cos( \theta )    = \cos( \omega t )$ 
+
+- $\theta$ is in units of radians $= 2 \pi f t$
+- there are $2 \pi$ radians per cycle
+- we define the angular frequency $\omega = 2 \pi f$ radians/sec
+- time $t$ is defined as $t = \frac{ (i \cdot \Delta t )}{T}$ where $T$ is the total time
+
+## Fourier Transform
+The Fourier transform of a function $f(x)$ 
+is a complex valued function $F(\omega)$
+
+::: {.callout-note title="Fourier Transform"}
+$$
+FT(f)  = F( \omega ) = \int_{-\infty}^{\infty} f(x) e^{- i x \omega } dx
+$$
+:::
+
+Remembering that $\omega = 2 \pi f$
+
+## Fourier Transform: Prism
+
+::: {#fig-prism layout-ncol=2}
+
+![Illustration of a prism](../images/prism1.jpg){#fig-prism-cartoon}
+
+![A real prism](../images/dispersive_prism.png){#fig-prism-real}
+
+![Newton's light experiements](../images/newton-prsim.jpg){#fig-newton-prism}
+
+![Newtons critical insight](../images/Newton-Light-crucial-experiment.jpg){#fig-newton-insight}
+
+The FFT is a timeseries prism.
+:::
+
+Think of the Fourier Transform like a prism: the input has numerous signals all combined: the FT separates the signals into sinusoidal elements and assigns a 'power', or level,  to each component.
+
+## Fourier Analysis: **R**
+Suppose you have a time series, $g$ that has $n$ samples:
+
+-  In **R** you can get the Fourier transform 
+by using the function fft (Fast Fourier Transform)
+- fft works fastest when the number of samples is a power of 2
+- if $n$ is not a power of 2, can zero-pad to closest power
+- the fft function returns a complex valued vector n-samples long
+- it is a good idea to remove the mean from the signal before fft
+- the fft is symmetric: usually we display only half
+- Use functions Mod, and Arg to extract the Modulus and Phase Angle
+- Parseval's theorem: 
+$$
+\sum^{n} \text{Abs}(fft)^2 = \sum^{n} \text{Abs}(g)^2
+$$
+
+## Sampling and Aliasing
+- In nearly all cases in data analysis in the earth sciences we sample the data at discrete intervals.
+- This means that signals are never continuous.
+- We can think of this process as multiplying the underlying continuous (natural) signal by a comb function and a boxcar function.
+- the boxcar function is applied because our observations have a finite time interval.
+
+The Nyquist theorem states that we must sample an
+underlying signal at least twice per cycle in order to reconstruct a 
+particular frequency.  Or, if we sample at a rate of $\Delta t$, then 
+$$
+f_{Nyquist} = \frac{1}{2\Delta t}
+$$
+is the maximum frequency we can extract without aliasing.
+
+## Fourier Analysis
+
+- Amplitude spectrum:
+$$
+A = \sqrt{a^2 + b^2}
+$$
+- Phase spectrum:
+$$
+\phi = \tan^{-1}\left( \frac{b}{a} \right)
+$$
+
+We can think of the amplitude spectrum is offering information on the
+statistical properties of the underlying time series: How much variance of the
+original signal is accounted for in each Fourier component?
+
+This is the underlying concept of the *Power Spectrum*.
+
+## Convolution and Correlation
+Convolution and Correlation of two time series are related:
+
+::: {.callout-note title="Cross Correlation"}
+$$
+\left(f \star  g\right)(t) \equiv \int_{-\infty}^{\infty} f^{\ast}(\tau)g(t+\tau) d\tau
+$$
+:::
+
+To get the correlation: shift, multiply, sum
+
+::: {.callout-note title="Convolution (Time reversed correlation) "}
+$$
+\left(f \circledast  g\right)(t) \equiv \int_{-\infty}^{\infty} f(\tau)g(t - \tau) d\tau  
+$$
+:::
+
+## Shift Theorem
+Shifting the time series multiplies the FT by a complex exponential.
+
+::: {.callout-note title="Theorem"}
+$$
+FT( g(x-a) ) = e^{-i \omega a} G(\omega) 
+$$
+:::
+
+Start with the definition of the FT: $FT(g) = \int g e^{-i\omega t} dt$
+
+::: {.callout-note title="Proof"}
+$$
+\int_{-\infty}^{\infty} f(x-a) e^{- i 2 \pi x s}dx
+$$
+
+Substitute $u=x-a$, so that  $du=dx$ and $x = u+a$:
+
+$$
+\int_{-\infty}^{\infty} f(u) e^{-i 2 \pi (u+a) s}du = \int_{-\infty}^{\infty} f(u) e^{-i 2 \pi u s}   e^{-i 2 \pi a s} du = e^{-i 2 \pi a s}  F(s)
+$$
+:::
+
+## Convolution Theorem
+
+Prove convolution theorem:
+$$
+FT\left[ \int_{-\infty}^{\infty} f(\tau) g(t-\tau) d\tau \right] = F(\omega)G(\omega)
+$$
+Or, convolution in the time domain is multiplication in the frequency domain.
+
+::: {.callout-note title="Proof of Convolution Theorem"}
+
+\begin{eqnarray*}
+FT\left[ \int_{-\infty}^{\infty} f(\tau) g(t-\tau)d\tau \right] &=& \\
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(\tau) g(t-\tau)e^{-i \omega t }d\tau dt &=& \\
+\int_{-\infty}^{\infty} f(\tau)  \int_{-\infty}^{\infty} g(t-\tau)e^{-i \omega t } dt d\tau &=& \\
+\int_{-\infty}^{\infty} f(\tau)  e^{-i \omega \tau } G(\omega) d\tau &=& 
+F(\omega)G(\omega) \quad \square
+\end{eqnarray*}
+:::
+
+Multiplication in the time domain is convolution in the frequency domain
+$$
+g(t) \times f(t) \Leftrightarrow F(\omega) \circledast G(\omega)
+$$
+Multiplication in the frequency domain is convolution in the time domain
+$$
+F(\omega) \times G(\omega) \Leftrightarrow  g(t)\circledast f(t) 
+$$
+
+## Convolution
+- Any discrete measurement of a continuous process
+- Seismogram
+- Climate Cycles
+- Filtering 
+- Convolution is the way we describe the interaction of signal processes
+
+**Example: Seismic Data**
+
+- Source 
+- Earth Structure
+- Instrument
+- An observed signal can be modeled as a convolution of these processes
+
+::: {#fig-conv layout-nrow=2}
+
+![An earthquake occures in the earths crust.](../images/epicenter.jpg){#fig-earthquake}
+
+![The composition and geometry of the fault effect the propagation.](../images/LG-MineralMtnXsection.JPG){#fig-fault-diagram}
+
+![A seismometer records an event at the surface.](../images/F03-09b.jpg){#fig-seismometer}
+
+![Finally we have a signal to analyze.](../images/tseis.jpeg){#fig-signal}
+
+A signal can be thought of as a convolution of source, earth, and instrument.
+:::
+
+$$
+Source  ~~\bigotimes Earth ~~ \bigotimes ~~ Instrument ~~= ~~Signal
+$$
+
+```{r}
+#| label: fig-conv-example
+#| fig-cap: An example of convolution
+#| echo: false
+#| fig-width: 12
+#| fig-height: 8
+
+library(RSEIS)
+
+dt = 0.01
+freq = 16
+nlen = 35
+
+G = genrick(freq, dt, nlen)
+
+tee = seq(from=0, by=dt, length=length(G))
+
+x = sin(2*pi*freq*tee)*exp(-10*tee)
+
+rx = rev(x)
+
+mt1 = min(tee)
+mt2 = max(tee)
+
+x1 = min(x)
+x2 = max(x)
+
+rx1 = min(rx)
+rx2 = max(rx)
+
+
+spiks = rep(0, 50)
+spiks[22] = 1
+spiks[34] = 1
+
+s1 = min(spiks)
+s2 = max(spiks)
+
+timesp = seq(from=0, by=dt, length=length(spiks))
+
+st1 = min(timesp )
+st2 = max(timesp )
+
+c2 = convolve(x, spiks, type = c("open"))
+ct = seq(from=0, by=dt, length=length(c2))
+c21 = min(c2 )
+c22 = max(c2 )
+
+ct1 = min(ct)
+ct2 = max(ct)
+
+####
+library(RPMG)
+
+par(mai=c(.0, .0, .0,.0) )
+plot(c(0,1), c(0,1.2), type='n', ann=FALSE, axes=FALSE)
+
+lines(RESCALE(tee, 0, .4, mt1, mt2), RESCALE(x, 0.8, 1.0, x1, x2), col="blue")
+text(0, 1.1, "Instrument Response", pos=4)
+
+
+lines(RESCALE(timesp, .6, .9, st1, st2), RESCALE(spiks, 0.8, 1.0, s1, s2), col="blue")
+
+text(0.6, 1.1, "Earth Response", pos=4)
+
+lines(RESCALE(tee, 0, .4, mt1, mt2), RESCALE(rx, 0.5, .7, rx1, rx2), col="red")
+text(0, 0.7, "Reversed Instrument Response", pos=4)
+
+lines(RESCALE(timesp, .6, .9, st1, st2), RESCALE(spiks, 0.5, 0.7, s1, s2), col="blue")
+arrows(.45, .6, .55, .6)
+
+lines(RESCALE(ct, .2, .8, ct1, ct2), RESCALE(c2, 0.1, 0.3, c21, c22), col="purple")
+
+text(.2 , 0.35, "Convolved Output", pos=4)
+```
+
+![Convolution Explained](../images/placeholder.png)
+
+## Convolution: Thermometer Reading
+- If you are measuring a temperature and the ambient temperature suddenly drops
+- What do you observe?
+- Observe = Temp $\circledast$  Thermometer
+- The observation is the step function of the temperature 
+convolved with the response function of the thermometer
+
+## Convolution
+- Convolution is correlation with one of the time series reversed
+- A $\circledast$  B = correlate A(t) with B(-t)
+-  or: flip one time series and correlate
+
+Convolution is the way processes interact in the earth.  This is a model, of course, but it seems to work.
+
+$$
+C(t) = \int_{-\infty}^{\infty} A(t) B(-t) dt
+$$
+
+Convolution is the cross correlation of one time series
+with the time-reversed version of another time series.
+
+## Periodogram
+Recall the definition of the Autocorrelation:
+$$
+Auto(\tau) = \frac{E\left[ (X_{t} - \mu ) (X_{t+\tau} - \mu) \right]}{\sigma^{2}}
+$$
+$$
+FT\left[ \int_{-\infty}^{\infty} f(\tau) g(t+\tau)d\tau \right] = F(\omega)G^{\ast}(\omega)
+$$
+Let $g=f$ in the convolution theorem, get Fourier Transform *Autocorrelation*:
+$$
+FT\left[ \int_{-\infty}^{\infty} f(\tau) f(t+\tau)d\tau \right] = F(\omega)F^{\ast}(\omega) = \vert F(\omega) \vert^{2}
+$$
+This is commonly called the *periodogram*. 
+It is a simple measure of the variance of each fourier component 
+(sinusoid) represented in the signal. 
+
+:::{.callout-warning}
+The periodogram is not a good estimator of spectrum.
+:::
+
+- The periodogram is not a consistent estimator of the true underlying spectrum
+- Adding more data increases frequency resolution, but does not reduce variance
+- Must devise smoothing method to get around this problem
+- Smooth the periodogram
+- Average multiple spectra from multiple realizations of the time series (welch's method)
+
+::: {#fig-perio layout-nrow=2}
+
+![DFT with 64 samples](../images/placeholder.png){#fig-perio-64}
+
+![DFT with 128 samples](../images/placeholder.png){#fig-perio-128}
+
+![DFT with 256 samples](../images/placeholder.png){#fig-perio-256}
+
+![DFT with 1024 samples](../images/placeholder.png){#fig-perio-1024}
+
+Periodogram example
+:::
+
+![Raw Spectrum](../images/placeholder.png){#fig-perio-raw}
+
+::: {#fig-perio-smoothed layout-nrow=2}
+
+![frequency bandwidth = 0.00113](../images/placeholder.png){#fig-perio-smooth-1}
+
+![frequency bandwidth = 0.00298](../images/placeholder.png){#fig-perio-smooth-2}
+
+![frequency bandwidth = 0.00564](../images/placeholder.png){#fig-perio-smooth-3}
+
+![frequency bandwidth = 0.00851](../images/placeholder.png){#fig-perio-smooth-4}
+
+Smoothed Periodogram example
+:::
+
+-  We usually scale the power spectra using one of several methods:
+   - N (periodogram)
+   - Var(Y)
+   - Std(Y)
+- Sometimes it is useful to remove all scales from the spectrum: plot as decibels
+- A decibel is the log of the ratio of amplitudes
+- $dB = 10 \log(A/A_{0})$
+- If the power spectrum is needed, use 
+- $dB = 20\log (A/A_{0})$
+
+## Welch’s Method
+- Divide time series into smaller subsets
+- May be overlapping
+- Apply window (or taper) to each time series
+- Calculate power spectrum of subset
+- Average all spectra to get smoothed spectrum
+
+::: {#fig-welch-method layout-nrow=2}
+![1 DFT taper with NO smoothing](../images/placeholder.png){#fig-welch-1}
+
+![ALL taper with NO smoothing](../images/placeholder.png){#fig-welch-2}
+
+![Welch's method with smoothing and taper](../images/placeholder.png){#fig-welch-3}
+
+![Welch's method with stft and mean](../images/placeholder.png){#fig-welch-4}
+
+Welch's method example
+:::
+
+![Welch Method Combind](../images/placeholder.png){#fig-welch-all}
+
+
+## Filtering and Convolution
+
+- Design Filter in Frequency Domain
+- Get FT of signal
+- Multiply FT of signal with filter
+- Inverse FT back to time domain
+
+## Coherency
+
+A standard measure of the similarity of a pair of signals is the
+coherency function defined by,
+$$
+C(f) = \frac{S_1(f) \cdot S_2(f)} {\sqrt{S_1^2(f) S_2^2(f)} }
+$$
+where S1 and S2 are the complex Fourier transforms of the respective
+signals and ($\cdot$) is the dot product.  In the case where we have
+multi-taper estimates of the spectra we can form the coherency
+function by using all n of the eigenspectra for each signal.  In this
+case the coherence function is calculated by taking the inner vector
+product of the complex eigenspectra at each frequency,
+$$
+C(f) = \frac{\sum_{k=1}^n S_{1k}(f) \cdot S_{2k}^{*}(f) }{
+ \sqrt{S_1^2(f) S_2^2(f)} }
+$$
+where * represents complex conjugation.  The coherency function ranges
+from 0 to 1 and is measure of the coherency at each frequency.
