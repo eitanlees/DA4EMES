@@ -20,6 +20,8 @@ format:
   html:
     theme: cosmo
     lightbox: true
+    code-tools: true
+    code-fold: true
   pdf:
     documentclass: scrreprt
 

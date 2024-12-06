@@ -17,7 +17,6 @@ How would you describe this signal?:
 ```{r}
 #| label: fig-one-wiggle
 #| fig-cap: A single time series
-#| echo: false
 
 dt = 1/100
 
@@ -42,7 +41,6 @@ The signal can be represented as a sum of different sinusoids:
 #| label: fig-three-wiggles
 #| fig-cap: The same signal can be represented as a sum of sinusoids.
 #| fig-height: 10
-#| echo: false
 par(mfrow=c(3,1) )
 par(mai=c(.5, .5, .1,.1) )
 plot(t, y1, ylim=range(y3) , type='l', xlab='', ylab='')
@@ -62,7 +60,6 @@ One could convey all the information with 6 numbers:
 ```{r}
 #| label: fig-discrete-sampling
 #| fig-cap: A wave is sampled at discrete points in time. 
-#| echo: false
 
 library(RSEIS)
 
@@ -440,7 +437,6 @@ $$
 ```{r}
 #| label: fig-conv-example
 #| fig-cap: An example of convolution
-#| echo: false
 #| fig-width: 12
 #| fig-height: 8
 
